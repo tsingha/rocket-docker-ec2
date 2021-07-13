@@ -1,6 +1,6 @@
 # README.md
 
-Hello! Welcome to my Rocket Chat Automation. This task is automatically deploy a Rocket Chat Application as a standalone docker container on a AWS EC2 Instance. The EC2 instance will be created using **Terraform** and the post configuration and docker container creation will be done by **Ansible**. For continuous deployment we are using **Jenkins**.
+Hello! Welcome to my Rocket Chat Automation. This task is automatically deploying a Rocket Chat Application as a standalone docker container on an AWS EC2 Instance. The EC2 instance will be created using **Terraform** and the post configuration and docker container creation will be done by **Ansible**. For continuous deployment we are using **Jenkins**.
 
 **Note**: Here we are not using any certificate for https secure access or not using load balancer.
 
