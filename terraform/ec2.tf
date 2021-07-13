@@ -52,7 +52,7 @@ resource "aws_security_group" "linux" {
   }
 
   tags = {
-    Name = "terraform"
+    Name = "linux-sg"
   }
 }
 
@@ -63,7 +63,7 @@ resource "aws_instance" "linux" {
   instance_type = "t3.medium"
 
   tags = {
-    Name = "linux"
+    Name = "Linux-Docker"
   }
 
   vpc_security_group_ids = [
