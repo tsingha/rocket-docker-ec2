@@ -1,0 +1,56 @@
+---
+- name: Rocket chat installation as a Docker container
+  hosts: ec2
+  gather_facts: false
+  
+  tasks:
+    - name: Install yum-utils
+      yum:
+        name: yum-utils
+        state: present 
+      register: result
+    - debug: msg="{{ result }}"
+
+    - name: Configure Repo
+      shell: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+      register: result
+    - debug: msg="{{ result }}"
+
+    - name: Install Docker
+      yum:
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+        state: present
+      register: result
+    - debug: msg="{{ result }}"
+  
+    - name: Enable Docker services
+      service:
+        name: docker
+        state: started
+        enabled: yes
+      register: result
+    - debug: msg="{{ result }}"
+
+    - name: Run MongoDB
+      shell: docker run --name db -d mongo:4.0 --smallfiles --replSet rs0 --oplogSize 128
+      register: result
+    - debug: msg="{{ result }}"
+
+    - name: Initiate MongoDB replica set
+      shell: docker exec -ti db mongo --eval "printjson(rs.initiate())"
+      register: result
+    - debug: msg="{{ result }}"
+    
+    - name: Run RocketChat
+      shell: docker run --name rocketchat -p 80:3000 --link db --env ROOT_URL=http://localhost --env MONGO_OPLOG_URL=mongodb://127.0.0.1:27017/local -d rocket.chat:3.13.5
+      register: result
+    - debug: msg="{{ result }}"
+
+    - name: Check if container is running
+      shell: docker ps
+      register: result
+    - debug: msg="{{ result }}"
+
