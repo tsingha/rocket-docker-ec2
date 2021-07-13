@@ -1,5 +1,9 @@
 # README.md
 
+Hello! Welcome to my Rocket Chat Automation. This task is automatically deploy a Rocket Chat Application as a standalone docker container on a AWS EC2 Instance. The EC2 instance will be created using **Terraform** and the post configuration and docker container creation will be done by **Ansible**.
+
+Before start create a Jump Server or Client Machine using Centos 7 and do the below task.
+
 1.	**Install AWS CLI command utility**
     ```
     # curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
