@@ -83,7 +83,7 @@
     # systemctl daemon-reload
     ```
     **Jenkins URL:**
-    > http://<FQDN/IP>:8080
+    > **http://<FQDN/IP>:8080**
     
     **Now do the below work,**
 
@@ -103,11 +103,11 @@
         Go to new Item -> Select Freestyle Project -> Provide a name -> OK
 
         Now Open the project and Provide a description.
-        > Rocket Chat Installation as a Docker Container on EC2
+        > **Rocket Chat Installation as a Docker Container on EC2**
 
         In **Source Code Management** provide the **git repository URL**.
         
-        > https://github.com/tsingha/rocket-docker-ec2.git
+        > **https://github.com/tsingha/rocket-docker-ec2.git**
 
         In **Build** section choose the **Execute shell** and write down the command and click on **Save**.
         ```
@@ -144,11 +144,11 @@
         Go to new Item -> Select Freestyle Project -> Provide a name -> OK
         
         Now Open the project and Provide a description.
-        > Rocket Chat Docker deletion
+        > **Rocket Chat Docker deletion**
         
         In **Source Code Management** provide the **git repository URL**.
 
-        > https://github.com/tsingha/rocket-docker-ec2.git
+        > **https://github.com/tsingha/rocket-docker-ec2.git**
 
         In **Build** section choose the **Execute shell** and write down the command and click on **Save**.
         ```
